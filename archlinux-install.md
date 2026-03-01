@@ -39,6 +39,29 @@ swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 ```
 
+BIOS
+
+список разделов:
+
+/dev/sda1 - SWAP 8G
+
+/dev/sda2 - ROOT все остальное
+
+создать файловые системы
+
+```bash
+mkswap /dev/sda1
+```
+
+```bash
+swapon /dev/sda1
+```
+
+```bash
+mkfs.ext4 /dev/sda2
+```
+
+
 подключить репозиторий multilib
 ```bash
 nano /etc/pacman.conf
@@ -57,7 +80,7 @@ pacman -Syy
 
 монтируем корневой раздел
 ```bash
-mount /dev/sda3 /mnt
+mount /dev/sda2 /mnt
 ```
 установить базовую систему
 ```bash
