@@ -12,10 +12,13 @@ cfdisk -z /dev/sda
 ```
 
 UEFI
+
 список разделов:
 
 EFI 1G
+
 SWAP 8G
+
 ROOT ~
 
 создать файловые системы
