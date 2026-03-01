@@ -200,5 +200,9 @@ umount -R /mnt
 
 GNOME
 -----
-pacman -S gnome gnome-extra networkmanager # устанавливает GNOME, GNOME-дополнительные пакеты и сетевой менеджер
-systemctl enable gdm && systemctl enable NetworkManager # включает автозапуск GDM и NetworkManager
+```
+pacman -S gnome gnome-extra networkmanager
+```
+```
+systemctl enable gdm && systemctl enable NetworkManager
+```
