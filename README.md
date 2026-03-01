@@ -15,11 +15,11 @@ UEFI
 
 список разделов:
 
-EFI 1G
+/dev/sda1 - EFI 1G
 
-SWAP 8G
+/dev/sda2 - SWAP 8G
 
-ROOT ~
+/dev/sda3 - ROOT все остальное
 
 создать файловые системы
 
