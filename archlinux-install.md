@@ -63,7 +63,8 @@ swapon /dev/sda1
 mkfs.ext4 /dev/sda2
 ```
 
-
+НАСТРОЙКА ПАКЕТНОГО МЕНЕДЖЕРА
+-
 подключить репозиторий multilib
 ```bash
 nano /etc/pacman.conf
