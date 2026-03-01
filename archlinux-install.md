@@ -2,12 +2,12 @@
 
 задать пароль для root
 
-```bash
+```
 passwd
 ```
 
 запустить разметку диска
-```bash
+```
 cfdisk -z /dev/sda
 ```
 
@@ -24,19 +24,19 @@ UEFI
 
 создать файловые системы
 
-```bash
+```
 mkfs.fat -F32 /dev/sda1
 ```
 
-```bash
+```
 mkswap /dev/sda2
 ```
 
-```bash
+```
 swapon /dev/sda2
 ```
 
-```bash
+```
 mkfs.ext4 /dev/sda3
 ```
 
@@ -51,22 +51,22 @@ BIOS
 
 создать файловые системы
 
-```bash
+```
 mkswap /dev/sda1
 ```
 
-```bash
+```
 swapon /dev/sda1
 ```
 
-```bash
+```
 mkfs.ext4 /dev/sda2
 ```
 
 НАСТРОЙКА ПАКЕТНОГО МЕНЕДЖЕРА
 -
 подключить репозиторий multilib
-```bash
+```
 nano /etc/pacman.conf
 ```
 
@@ -77,28 +77,28 @@ nano /etc/pacman.conf
 убрать комментарий #
 
 обновить список пакетов
-```bash
+```
 pacman -Syy
 ```
 
 МОНТИРОВАНИЕ КОРНЕВОГО РАЗДЕЛА И УСТАНОВКА БАЗОВОЙ СИСТЕМЫ
 -
 монтируем корневой раздел
-```bash
+```
 mount /dev/sda2 /mnt
 ```
 установить базовую систему
-```bash
+```
 pacstrap -K /mnt base linux linux-firmware sudo nano networkmanager openssh mc
 ```
 
 сгенерировать таблицу разделов
-```bash
+```
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 переходим в окружение новой системы
-```bash
+```
 arch-chroot /mnt
 ```
 
