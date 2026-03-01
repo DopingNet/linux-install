@@ -14,9 +14,10 @@ cfdisk -z /dev/sda
 UEFI
 ----
 список разделов:
-#/dev/sda1 - EFI 1G
-#/dev/sda2 - SWAP 8G
-#/dev/sda3 - ROOT ~
+
+/dev/sda1 - EFI 1G
+/dev/sda2 - SWAP 8G
+/dev/sda3 - ROOT ~
 
 создать файловые системы
 
