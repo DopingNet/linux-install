@@ -155,7 +155,7 @@ echo LANG=ru_RU.UTF-8 > /etc/locale.conf && export LANG=ru_RU.UTF-8
 
 зададим имя хоста
 ```
-echo arch-vbox > /etc/hostname # задаёт имя хоста
+echo arch-vbox > /etc/hostname
 ```
 отредактируем hosts
 ```
