@@ -42,7 +42,7 @@ BIOS
 -
 
 > sda1 - SWAP
-
+>
 > sda2 - root
 
 ```
