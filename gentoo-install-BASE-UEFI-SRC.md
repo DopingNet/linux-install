@@ -89,3 +89,130 @@ links https://www.gentoo.org/downloads/mirrors/
 ```
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
 ```
+
+Редактирую файл настроек make.conf (что и где писать в видео, тут чуть позже)
+```
+nano /mnt/gentoo/etc/portage/make.conf
+```
+
+Копирую информацию о сети в новую систему
+```
+cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+```
+
+Монтирую необходимые папки
+```
+mount --types proc /proc /mnt/gentoo/proc
+```
+```
+mount --rbind /sys /mnt/gentoo/sys
+```
+```
+mount --make-rslave /mnt/gentoo/sys
+```
+```
+mount --rbind /dev /mnt/gentoo/dev
+```
+```
+mount --make-rslave /mnt/gentoo/dev
+```
+```
+mount --bind /run /mnt/gentoo/run
+```
+```
+mount --make-slave /mnt/gentoo/run
+```
+
+Выполняю вход в новое окружение и перезагружаю сеанс
+```
+chroot /mnt/gentoo /bin/bash
+```
+```
+source /etc/profile
+```
+```
+export PS1="(chroot) ${PS1}"
+```
+
+Монтирую раздел загрузчика
+```
+mount /dev/sda1 /efi
+```
+
+Если создавался раздел boot для BIOS то монтируем (для UEFI - пропустить)
+```
+mount /dev/sda1 /boot
+```
+
+Обновляю дерево портежей
+```
+emerge-webrsync
+```
+
+Обновляю список ebuild файлов
+```
+emerge --sync
+```
+
+Читаю новости
+```
+eselect news list
+```
+```
+eselect news read
+```
+
+Смотрю список профилей
+```
+eselect profile list
+```
+
+Выбираю профиль 3
+```
+eselect profile set 3
+```
+
+Обновляю систему
+```
+emerge --ask --verbose --update --deep --changed-use @world
+```
+
+Делаю очистку
+```
+emerge --ask --depclean
+```
+
+Устанавливаю часовой пояс
+```
+ln -sf ../usr/share/zoneinfo/Europe/Brussels /etc/localtime
+```
+
+Редактирую список локалей
+```
+nano /etc/locale.gen
+```
+
+Устанавливаю русскую и английскую локаль
+
+> en_US.UTF-8 UTF-8
+> de_DE.UTF-8 UTF-8
+
+Генерирую локали
+```
+locale-gen
+```
+
+Смотрю список локалей в системе
+```
+eselect locale list
+```
+
+Выбираю локаль
+```
+eselect locale set 5
+```
+
+Перезагружаю сеанс и профиль
+```
+env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+```
