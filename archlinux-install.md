@@ -14,8 +14,8 @@ cfdisk -z /dev/sda
 UEFI
 -
 
-> список разделов:
-> 
+ список разделов:
+ 
 > sda1 - EFI 1G
 > 
 > sda2 - SWAP 8G
